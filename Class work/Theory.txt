@@ -55,3 +55,19 @@ if we want it use constant in class need to use static const,
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------)
+
+
+Conditional Statements:
+If..Statement
+It...else Statement
+Else if Statement
+Nested if Statement 
+Swirch Statement
+
+
+Loooping Statement:
+For Loop
+For .. in loop
+While loop,
+do while.. loop,
+
