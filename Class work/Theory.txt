@@ -1,0 +1,57 @@
+1) Default Value:-
+ while declaring The VAriable Without initializing the value then the dart compiler provider default value (NUll ) to the value,
+
+Example:-
+
+    Main(){
+	
+	int a;
+	print("$a");
+
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------)
+
+
+2) Final & Const:-
+
+When we do not want to change a variable in the future then we use final and const it can be used in place of var or in addition to a type,
+
+exmpale:-
+
+main(){
+
+final pi=3.14;
+final String subname="dart";
+var pi=4.14;                     (In this error show because pi alredy used  (final))
+print("$pi");		
+print("$subname");
+
+
+} 
+
+
+main(){
+const name="dart ";
+print("$name");
+}
+
+
+
+
+*)Difference Between final and cost:(*)
+
+Final : final variable can only be set  once be set once and it is initialized when accessed,
+If we never use that variable in programm then it will be not initialize that value,
+
+
+const:- Variable is implicityly final but it is a complie time constant.
+It is initialiized during Compilation , If we not using that variable it will consume is memory .
+
+
+instance varibale can be final but cannot be const,
+if we want it use constant in class need to use static const,
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------)
