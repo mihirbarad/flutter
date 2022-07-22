@@ -1,11 +1,16 @@
 import 'dart:io';
 
 main() {
-  var day;
+  var Principal;
+  var Rate;
+  var Interest;
 
-  print("enter your day number");
-  day = int.parse(stdin.readLineSync()!);
-  print("your month is ${day / 30}");
+  print("enter your Principal number");
+  Principal = int.parse(stdin.readLineSync()!);
+  print("enter your Rate number");
+  Rate = int.parse(stdin.readLineSync()!);
+  print("enter your Interest number");
+  Interest = int.parse(stdin.readLineSync()!);
 
-  print("your year is ${day / 365}");
+  print("your month is ${(Principal * Rate * Interest) / 100}");
 }
