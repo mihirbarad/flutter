@@ -57,7 +57,7 @@ if we want it use constant in class need to use static const,
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------)
 
 
-Conditional Statements:
+(*)Conditional Statements:
 If..Statement
 It...else Statement
 Else if Statement
@@ -70,4 +70,24 @@ For Loop
 For .. in loop
 While loop,
 do while.. loop,
+
+
+
+________________________________________________________________________________________________________________________________________________________________________________________________
+IF exmpale:
+
+import'dart:io';
+
+main(){
+	var num;
+	print("Enter a number");
+	num =int.parse(stdin.readline()!);
+
+	if(num > 35){
+		print("number is greater than 35 ");
+
+	}else{
+		print("number is less than")
+	}
+}
 
