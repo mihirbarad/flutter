@@ -3,7 +3,7 @@ import 'dart:io';
 main() {
   var month;
 
-  print("enter your first number");
+  print("enter your  number");
 
   month = int.parse(stdin.readLineSync()!);
 
