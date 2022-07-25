@@ -1,15 +1,16 @@
-import 'dart:io';
+// import 'dart:io';
 
-main() {
-  var number;
-  print("Your Status On/Off \n1)ON\n2)OFF");
+// main() {
+//   var number;
+//   print("Your Status On/Off \n1)ON\n2)OFF");
 
-  number = stdin.readLineSync();
-  bool status;
+//   number = stdin.readLineSync();
+//   // bool value = true;
+//   number=()
 
-  if (number == "1") {
-    print("your Status true");
-  } else {
-    print("your Status false");
-  }
-}
+//   if (value == true) {
+//     print("your Status true");
+//   } else {
+//     print("your Status false");
+//   }
+// }

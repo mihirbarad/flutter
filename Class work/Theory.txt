@@ -91,3 +91,9 @@ main(){
 	}
 }
 
+
+else if stattement----
+
+
+
+
