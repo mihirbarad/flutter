@@ -2,14 +2,14 @@ import 'dart:io';
 
 main() {
   var number;
-  print("Enter Your Number");
-  number = int.parse(stdin.readLineSync()!);
+  print("Your Status On/Off \n1)ON\n2)OFF");
+
+  number = stdin.readLineSync();
   bool status;
 
-  status = (number > 10);
-  if (status) {
-    print("your Status $status");
+  if (number == "1") {
+    print("your Status true");
   } else {
-    print("your Status $status");
+    print("your Status false");
   }
 }
