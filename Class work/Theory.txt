@@ -142,5 +142,26 @@ While(condition)
 
 ----------------------------------------------------------------------------------------------  ------------------------------
 
+Do .. while loop:
+
+do while loop execute a block of the statement first and then checks the condition if the conditon returns true, then the loop continues it
+iteration It is similar to dart while loop but the only difference isin the do while loopa block of statement inside the body of loop will be the
+executeat least oncce
+
+initialization;
+
+do{
+	body
+}while(condition);
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Function : set of code that together perform a specific task It is used to break the large code into smaller modules and reuse it when needed.
+
+
+Function make the programm more readable and more easy to debug.
+in dart function is an object that ...
+----------------------------------------------------------------------------------------------
+
 
 
