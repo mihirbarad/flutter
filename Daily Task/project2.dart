@@ -13,6 +13,7 @@ main() {
   int bruschetta = 0;
   int icecream = 0;
   var agein;
+  var status = true;
 
   double dayamount = 0;
   double totalpizz = 1;
@@ -33,7 +34,7 @@ main() {
     print(
         "***Buy 4 or more pizzas and pastas and get 2 chocco brownies ice cream free.");
     print("--------------------------------------------------------\n");
-    for (var i = 1; i < 10; i++) {
+    while (status) {
       print("Enter Your Name");
       name = stdin.readLineSync();
       print("--- Welcome $name---\n\n ");
@@ -93,8 +94,7 @@ main() {
         print("---Thanks For Visiting---");
         print(
             "----------------------------------------------------------------\n\n");
-
-        break;
+        status = false;
       }
     }
   } else {

@@ -114,7 +114,33 @@ if(conditon){
 }
 
 --------------------------------------------------------------------------------------------------------------------------------
+For in loop :-)
+it's use for fetch data in list,
 
+main(){
+
+	var l1=[12,13,14,15];
+	for(var i in l1){print(i);}
+}
+--------------------------------------------------------------------------------------------------------------------------------
+
+* while loop:)
+
+While loop is used when the number of execution of block of code is not know,
+ it will execute as long as the condition if true, ,It initially check the given condition then
+  execute the statement that are inside the while loop,
+
+
+
+
+initialization;
+While(condition)
+{
+	statement;
+	increment;
+}
+
+----------------------------------------------------------------------------------------------  ------------------------------
 
 
 
