@@ -163,5 +163,21 @@ Function make the programm more readable and more easy to debug.
 in dart function is an object that ...
 ----------------------------------------------------------------------------------------------
 
+1) Actual Perameter :-)
 
+A parameter which is parsed during a function definition is called the actual parameter.
+
+2) Formal Perameter :)
+
+A parameter which is parsed during a function call is called the formal parameter.
+
+------------------------------------------------------------------------------------------------
+
+
+four categories Function:)
+
+1)Function without parameter and without return type,
+2)funtion with parameter and without return type,
+3)function without parameter and with return type,
+4)function with parameter and with return type,
 
