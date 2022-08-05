@@ -1,11 +1,7 @@
-//13. Write a program to find the Max number from the given three number using Nested If
+//15. Write a program to find the Max number from the given three number using Nested If
+
 import 'dart:io';
 
-/***********
- num1=10
-  num2=20
-   num3=30
- */
 main() {
   print("Enter first number");
   var num1 = int.parse(stdin.readLineSync()!);
