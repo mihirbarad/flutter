@@ -47,6 +47,9 @@ main() {
       amount_idli = idli_select * 80;
 
       print("Your Amount is $amount_idli");
+    } else {
+      print("Ops type problem, try agin ");
+      break;
     }
     grandamount = amount_pizz + amount_burger + amount_dosa + amount_idli;
     print("Your total amount is $grandamount");
