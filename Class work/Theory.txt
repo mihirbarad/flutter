@@ -182,6 +182,29 @@ four categories Function:)
 4)function with parameter and with return type,
 --------------------------------------------------------------------------------------------------------------------------------
 
+Flutter Introdution :
 
+Flutter is an open -source Ui software development kit create by google 2011.
+Flutter apps are written in the Dart language and make use of many of the langaues more advance features.
+
+Who uses flutter?
+
+Some big companess are using it. such as as Alibaba (andorid and iso) Tecent (an/iso) and google ads(and/iso).
+
+
+
+
+Flutter Structure:
+
+Myapp(Top-level)
+	|
+--MeterialApp
+	|	
+--MyHomepage
+	|
+--Scaffold--
+	|
+1)appbar  2)body
+													
 
 
