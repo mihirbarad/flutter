@@ -9,7 +9,11 @@ void main() {
     number = number + 1;
 
     print('$number ${name[i]}');
-    if (name[i] == '+' || name[i] == '!' || name[i] == '@') {
+    if (name[i] == '+' ||
+        name[i] == '!' ||
+        name[i] == '@' ||
+        name[i] == '#' ||
+        name[i] == '%') {
       print("synbol");
     } else if (name[i] == 'A' ||
         name[i] == 'B' ||
