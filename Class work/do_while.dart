@@ -1,9 +1,9 @@
 import 'dart:io';
 
 main() {
-  var i = 0;
+  var i = 5;
   do {
     print("$i");
-    i++;
-  } while (i <= 5);
+    i--;
+  } while (i >= 1);
 }
