@@ -1,0 +1,85 @@
+Flutter Introdution :
+
+Flutter is an open -source Ui software development kit create by google 2011.
+Flutter apps are written in the Dart language and make use of many of the langaues more advance features.
+
+Who uses flutter?
+
+Some big companess are using it. such as as Alibaba (andorid and iso) Tecent (an/iso) and google ads(and/iso).
+
+
+
+
+Flutter Structure:
+
+Myapp(Top-level)
+	|
+--MeterialApp
+	|	
+--MyHomepage
+	|
+--Scaffold--
+	|
+1)appbar  2)body
+
+
+----------------------------------------------------------------------------------------------
+
+Flutter Scaffold ::
+
+Scaffold is a widget in flutter used to implement the basic material design visual layout structure,
+
+it is quick qnough to create a general -purpose mobile application and contains almost everything we need to implement
+create a functional and responsive Flutter apps, 
+
+It is mainly responsible for creating a base to the app screen on which the child widgets hold on and render on the screen.
+
+It provider many widgets or apis for showing drawer, snakbar BottomNavigatorbar , Appbar Floating action button, and many more,
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Appbar: The
+It is horizontal bar that is mainly dispalyed at the top of the Scaffold widget,
+
+Is is the main part of the Scaffold widget and dispalys at the top  of screen.
+
+
+syntex:
+
+return scaffold(
+	appbar:AppBar(
+		title:Text("My application")
+	)
+)
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Conttainer:
+
+Container is flutter is parent widget that can contain multiple child widgets and manage them efficiently.
+through width , height and padding background color  etc.
+
+it allows many attributes to the user for decorating its child widgets such as using margin which separates the container from
+with other contents.
+
+A container widgets is same as <div> tag in html, If this widgets does not cotain and child widgets. it will the 
+whole aera on the screen automatically. otherwise is will wrap the child widget according to thespecified height andwidth
+
+
+
+widget cannot render directly without any parent widgets, We can use Scaffold widgets. center widgets padding and
+Row widgets or column widgets as its parent widgets.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+USe of Container:
+
+Widgets that need some background styling may be a color shape , or size constraint we may try to wrap it in a widget
+a container widget. this widget helps us to compose decorate and position its child wiidgets. This
+if we wrap our widgets in a container then without using any parameters we would not notice any difference in the
+But if we add any property such as color margin padding and etc. in a container , we can style our widgets on the same
+screen accoring to our needs.
+
+
+

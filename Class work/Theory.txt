@@ -182,59 +182,9 @@ four categories Function:)
 4)function with parameter and with return type,
 --------------------------------------------------------------------------------------------------------------------------------
 
-Flutter Introdution :
-
-Flutter is an open -source Ui software development kit create by google 2011.
-Flutter apps are written in the Dart language and make use of many of the langaues more advance features.
-
-Who uses flutter?
-
-Some big companess are using it. such as as Alibaba (andorid and iso) Tecent (an/iso) and google ads(and/iso).
 
 
 
-
-Flutter Structure:
-
-Myapp(Top-level)
-	|
---MeterialApp
-	|	
---MyHomepage
-	|
---Scaffold--
-	|
-1)appbar  2)body
-
-
-----------------------------------------------------------------------------------------------
-
-Flutter Scaffold ::
-
-Scaffold is a widget in flutter used to implement the basic material design visual layout structure,
-
-it is quick qnough to create a general -purpose mobile application and contains almost everything we need to implement
-create a functional and responsive Flutter apps, 
-
-It is mainly responsible for creating a base to the app screen on which the child widgets hold on and render on the screen.
-
-It provider many widgets or apis for showing drawer, snakbar BottomNavigatorbar , Appbar Floating action button, and many more,
-
---------------------------------------------------------------------------------------------------------------------------------
-
-Appbar: The
-It is horizontal bar that is mainly dispalyed at the top of the Scaffold widget,
-
-Is is the main part of the Scaffold widget and dispalys at the top  of screen.
-
-
-syntex:
-
-return scaffold(
-	appbar:AppBar(
-		title:Text("My application")
-	)
-)
 													
 
 
