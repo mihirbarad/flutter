@@ -81,5 +81,90 @@ if we wrap our widgets in a container then without using any parameters we would
 But if we add any property such as color margin padding and etc. in a container , we can style our widgets on the same
 screen accoring to our needs.
 
+-------------------------------------------------------------------------------------------------------------------------------
+
+Properties oF Container widgets: 
+
+Child: This property is used to store the child widgetof the container. This
+
+body: Container(
+    child: Text("Container widget", style:Textstyle(fontsize:24))
+)
+
+color: background color of the entire container
 
 
+home: scaffold(appbar:Appbar(title: Text("My App"), 
+backgroundColor: color.cyan[300]))
+body:Container(
+    color:Colors.cyan[800]
+    child:Text("hello welcome ", style: Textstyle(fontsizez:24))
+)
+
+
+Height and width :
+By default the container always taks the space on its child widgets. 
+
+body: Container(width: 500,
+alignment: Alignment.center,
+child:Text("Hello welcome")
+)
+
+
+margin: This Project is used to surround the empty space around the container edgeinsets all(25): set the equal 
+margin in all four directions. 
+
+body:Container(width: 500,
+margin:EdgeInsets.all(25),
+child:Text("Hello welcome"),
+)
+
+padding: set the distance between the border of the container (all four directions) and its child 
+widget. 
+
+	body: Container(width:500.
+	padding: EdgeInsets.all(35)
+	child:Text("Hello would",style:Textstyle(fontsize:30))
+	)
+
+	Alignment:This property is used to set the position of chilld within the container . Flutter 
+	allows the user to align its element in various ways such as center bottom bottomcenter. etc. 
+
+	alignment:Alignment.bottom.bottomcenter,
+
+	Transform: The transformation property allows developers to ratate the container.
+	it can rotate the container in any directions, i.e change the container coordinates
+	in the prant widget,  
+
+	ex:  Container(transform:Matrix4.rorationz(0.5))
+
+
+	---------------------------------
+
+	type of widget : There are two of widgets.
+		1)Visible(input-Output)
+		2)Invisible(Layout -control)
+		
+	visible widget  
+
+	Text: A text widget hold some text to display on the screen. we can align the text widgets 
+	uusing textalign property and style property allows the customization of text that include font 
+	font weight and font style letter spacing.
+
+	container(
+		child:Text("Hello welcome to flutter ")
+	)
+
+
+	InVisible widget : invisible widget are related to the layout and control of widget
+	controlling how the widget actually behave and how they will look onto the screen. we
+
+	column: 
+
+	A column widget is a type of widget that arrange all its children widget in a vertical layout
+	alignment
+
+	it provider spacing between the widget by using the mainaxixalignment
+	and cross alignment property.
+
+	in these property, the main axis is the vertical axis and the cross the horizontal 
