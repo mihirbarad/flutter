@@ -105,37 +105,91 @@ class _LoginpageState extends State<Loginpage> {
             SizedBox(
               height: 20,
             ),
-            Container(
-              color: Color.fromARGB(255, 189, 163, 71),
-              width: 150,
-              alignment: Alignment.center,
-              margin: EdgeInsets.all(10),
-              child: TextButton(
-                onPressed: () {
-                  setState(() {
-                    var name = emailecontroller.text;
-                  });
-                  controller:
-                  emailecontroller.text;
-                  print(emailecontroller);
-                  controller:
-                  passwordcontroller.text;
-                  print(passwordcontroller);
+            TextButton(
+              child: Text(
+                "Login",
+                style: TextStyle(fontSize: 25),
+              ),
+              onPressed: () {
+                controller:
+                emailecontroller.text;
+                print(emailecontroller);
+                controller:
+                passwordcontroller.text;
+                print(passwordcontroller);
 
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Homescreen()));
+              },
+              style: TextButton.styleFrom(
+                primary: Color.fromARGB(255, 38, 8, 8),
+                elevation: 2,
+                backgroundColor: Color.fromARGB(255, 189, 163, 71),
+              ),
+            ),
+            SizedBox(height: 10),
+
+            Container(
+              padding: EdgeInsets.all(15),
+              child: InkWell(
+                onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (BuildContext context) => Homescreen()));
                 },
-                child: Text(
-                  "Login",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 80, 15, 11),
-                      fontSize: 30),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text("SignUp Membership",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                            color: Color.fromARGB(255, 189, 163, 71))),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Icon(Icons.arrow_circle_right_rounded,
+                        color: Color.fromARGB(255, 189, 163, 71))
+                  ],
                 ),
               ),
             ),
+            // Container(
+            //   color: Color.fromARGB(255, 189, 163, 71),
+            //   width: 150,
+            //   alignment: Alignment.center,
+            //   margin: EdgeInsets.all(10),
+            //   child: TextButton(
+            //     onPressed: () {
+            //       setState(() {
+            //         var name = emailecontroller.text;
+            //       });
+            //       controller:
+            //       emailecontroller.text;
+            //       print(emailecontroller);
+            //       controller:
+            //       passwordcontroller.text;
+            //       print(passwordcontroller);
+
+            //       Navigator.push(
+            //           context,
+            //           MaterialPageRoute(
+            //               builder: (BuildContext context) => Homescreen()));
+            //     },
+            //     child: Text(
+            //       "Login",
+            //       style: TextStyle(
+            //           fontWeight: FontWeight.bold,
+            //           color: Color.fromARGB(255, 80, 15, 11),
+            //           fontSize: 30),
+            //     ),
+            //   ),
+            // ),
 
             // Container(
             //   color: Color.fromARGB(255, 189, 163, 71),
@@ -153,12 +207,13 @@ class _LoginpageState extends State<Loginpage> {
             //             fontSize: 30)),
             //   ),
             // ),
-            SizedBox(height: 20),
+            SizedBox(height: MediaQuery.of(context).size.height / 6),
             Container(
               alignment: Alignment.bottomCenter,
               child: Text(
-                "Version 2.0",
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                "Version 1.0",
+                style: TextStyle(
+                    color: Color.fromARGB(255, 189, 163, 71), fontSize: 18),
               ),
             ),
           ],
@@ -176,11 +231,15 @@ class spelsh extends StatelessWidget {
     return Scaffold(
         body: SplashScreenView(
       navigateRoute: Loginpage(),
-      duration: 4000,
+      duration: 6000,
       backgroundColor: Color.fromARGB(255, 189, 163, 71),
-      text: "Digital Socity",
+      text: "Digital Socity ",
       textType: TextType.ScaleAnimatedText,
-      textStyle: TextStyle(fontSize: 40.0, color: Colors.white),
+      textStyle: TextStyle(
+        fontSize: 40.0,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
     ));
   }
 }
