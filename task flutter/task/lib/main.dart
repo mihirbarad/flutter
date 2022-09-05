@@ -137,7 +137,7 @@ class MyApp extends StatelessWidget {
             Container(
                 width: double.maxFinite,
                 //padding: EdgeInsets.all(10),
-                height: 280,
+                height: 360,
                 color: Color.fromARGB(255, 244, 255, 27),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
