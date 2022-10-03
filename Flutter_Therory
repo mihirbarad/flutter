@@ -199,3 +199,32 @@ widget.
 		single child layout widget is a type of widget, which can have only one child widget inside the parent layout
 		widgets. These widgets can also contain special layout functionality. Flutter provides us many single widgets to make the app ui 
 		attractive if we use these widgets appropriately, it can save out time and make the app code more readble .
+
+
+
+
+	Column Widgets:
+
+		A column widgets does not appear scrollable because it dispalys the widgets within the visuble column view so it considered worng if we have more children in a column which will not fit in the available space if we want to make a scrollable list of column widgets we need to use the ListView Widgets.
+
+
+		Text widgets property: 
+
+			Textalign: It is used to specify the how our is aligned horizontal. it also control the next,
+
+			TextDirection: It is usesd to determine when the text wil not inthe avaliable space. It means we have specified more text thant the avaliable space.
+
+		**TextScaleFactor**: It is used  determine the scaling to the text displayed by the Text widgets suppose we have specified  the text scale factor as 1.5 then our text will be 50 percent larger than the specified font size.
+
+		Softwrap: It is used whether or nit to show all text widgets contect when there is not enought space avaliable if the is true  it will show all contect Otherwise it will not show all contect.
+
+		**maxline **: It is used to determine the maximum number of line displayed in the text Widgets
+
+		**TextWidthBasic**: It is used to control how the width is defined.
+
+		TextHeightBehavior: It is used to control how the paragraph apperas between the first line and descent of the last line :
+
+		Style: It is the most common property of this widgest that allows developers to styleing thaier it can do stling by specifying the foreground and background color,font size font weight ,letter and word spacing locale shadows, etc. See the table to understand it more easily.
+
+		
+		

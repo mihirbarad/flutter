@@ -106,32 +106,33 @@ main() {
         print("memory full");
         break;
     }
+    if (select_team == rando) {
+      print("wather is not good ");
+      status == false;
+    }
+    var too1 = element;
     print("tail or heal  h/t");
     var toos = stdin.readLineSync()!;
-
-    if (toos == 'h') {
-      int random1(min, max) {
-        return min + Random().nextInt(1);
+    if (toos == 'h' || toos == 'H') {
+      print("toss is $element");
+      if (element == 'head') {
+        print("You are win this tose");
+      } else {
+        print("You are loose tose");
       }
-
-      var rando1 = random(1, 2);
-      switch (rando1) {
-        case 1:
-          print("You are win the toos head");
-
-          break;
-        case 2:
-          print("Your are loose toos tail");
-
-          break;
+    } else if (toos == 't' || toos == 'T') {
+      print("toss is $element");
+      if (element == 'tail') {
+        print("You are win this tose");
+      } else {
+        print("You are loose tose");
       }
     } else {
-      print("Your are loose toos head");
+      print("oops network error 1");
     }
 
     print("Enter Your score:");
     var score = int.parse(stdin.readLineSync()!);
-    print("Your scre is $score");
     int random2(min, max) {
       return min + Random().nextInt(min - max);
     }
@@ -143,12 +144,21 @@ main() {
     } else {
       print("Your are loose this match");
     }
-
-    print("If your play aging  to enter y / n");
-    var play = int.parse(stdin.readLineSync()!);
-    if (play == 'n' || play == 'N') {
-      print("have nice day");
-      break;
+    print("If you play agin to enter y/n");
+    var agin = stdin.readLineSync()!;
+    if (agin == 'n' || agin == 'N') {
+      print("-----------------------------------------------------\n");
+      print("Have a Nice Day ");
+      status = false;
     }
   }
 }
+
+var list = ['head', 'tail'];
+
+// generates a new Random object
+final _random = new Random();
+
+// generate a random index based on the list length
+// and use it to retrieve the element
+var element = list[_random.nextInt(list.length)];
