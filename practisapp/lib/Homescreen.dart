@@ -29,7 +29,7 @@ class _HomescreenState extends State<Homescreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(" Welcome to Food Delliver System"),
+                Text(" Welcome "),
               ],
             )));
   }

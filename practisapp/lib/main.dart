@@ -105,31 +105,43 @@ class _LoginpageState extends State<Loginpage> {
             SizedBox(
               height: 20,
             ),
-            TextButton(
-              child: Text(
-                "Login",
-                style: TextStyle(fontSize: 25),
-              ),
-              onPressed: () {
-                controller:
-                emailecontroller.text;
-                print(emailecontroller);
-                controller:
-                passwordcontroller.text;
-                print(passwordcontroller);
+            Container(
+              height: 50,
+              width: 180,
+              child: TextButton(
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+                onPressed: () {
+                  controller:
+                  emailecontroller.text;
+                  print(emailecontroller);
+                  controller:
+                  passwordcontroller.text;
+                  print(passwordcontroller);
 
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => Homescreen()));
-              },
-              style: TextButton.styleFrom(
-                primary: Color.fromARGB(255, 38, 8, 8),
-                elevation: 2,
-                backgroundColor: Color.fromARGB(255, 189, 163, 71),
+                  if (passwordcontroller == '789456123' ||
+                      emailecontroller == 'mb@gmail.com') {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => Homescreen()));
+                  } else {
+                    print("password not match");
+                  }
+                },
+                style: TextButton.styleFrom(
+                  primary: Color.fromARGB(255, 38, 8, 8),
+                  elevation: 2,
+                  backgroundColor: Color.fromARGB(255, 189, 163, 71),
+                ),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 40),
 
             Container(
               padding: EdgeInsets.all(15),
@@ -207,13 +219,15 @@ class _LoginpageState extends State<Loginpage> {
             //             fontSize: 30)),
             //   ),
             // ),
-            SizedBox(height: MediaQuery.of(context).size.height / 6),
+            SizedBox(height: MediaQuery.of(context).size.height / 7),
             Container(
               alignment: Alignment.bottomCenter,
               child: Text(
                 "Version 1.0",
                 style: TextStyle(
-                    color: Color.fromARGB(255, 189, 163, 71), fontSize: 18),
+                    color: Color.fromARGB(255, 189, 163, 71),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500),
               ),
             ),
           ],
