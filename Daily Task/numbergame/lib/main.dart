@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:numbergame/homepage.dart';
 import 'dart:math';
 
 void main() {
-  int random(int min, int max) {
-    return min + Random().nextInt(max - min);
-  }
-
-  print(random(5, 20)); // Output : 19, 5, 15.. (5 -> 19, 20 is not included)
-
   runApp(MyApp());
 }
 
-int? number;
-
-int random=0;
+String? num;
 
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
@@ -24,55 +15,53 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
+  TextEditingController numbercontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    TextEditingController numbercontroller = TextEditingController();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Number game "),
-        ),
         body: Column(
           children: [
             Container(
-              margin: EdgeInsets.all(10),
-              //width: 220,
+              padding: EdgeInsets.symmetric(vertical: 200),
+              margin: EdgeInsets.all(30),
               child: TextFormField(
-                controller: numbercontroller,
-                decoration: InputDecoration(
-                  hintText: 'Enter your Number',
-                ),
-              ),
+                  controller: numbercontroller,
+                  decoration: InputDecoration(
+                    labelText: "Enter Email",
+                    fillColor: Colors.white,
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                      borderSide: BorderSide(
+                        color: Colors.blue,
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25.0),
+                      borderSide: BorderSide(
+                        color: Color.fromARGB(255, 86, 73, 72),
+                        width: 2.0,
+                      ),
+                    ),
+                  )),
             ),
             ElevatedButton(
                 onPressed: () {
-                  number = numbercontroller.text;
-
-                  if () {
-                    print("Number is match");
-                  } else {
-                    print("Number is not match");
-                  }
+                  num = numbercontroller.text;
+                  print(numbercontroller.text);
                 },
-                child: Text("Click here"))
+                child: Text("click"))
           ],
         ),
       ),
     );
   }
 }
+
+// void ganret() {
+//   Random random = new Random();
+//   int randomNumber = random.nextInt(100);
+//   print(randomNumber);
+//   if (randomNumber > num) {}
+// }
