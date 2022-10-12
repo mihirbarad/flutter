@@ -49,7 +49,7 @@ class _task1State extends State<task1> {
               )
             ]),
             SizedBox(
-              height: 50,
+              height: 30,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -120,7 +120,7 @@ class _task1State extends State<task1> {
               children: [
                 SizedBox(width: 2.5),
                 Container(
-                  height: 490,
+                  height: 475,
                   width: 300,
                   margin: EdgeInsets.all(30),
                   decoration: BoxDecoration(
@@ -154,7 +154,7 @@ class _task1State extends State<task1> {
                           scale: 2.5,
                         ),
                       ),
-                      Text("5.00",
+                      Text("\$5.00",
                           style: TextStyle(
                               fontSize: 22, fontWeight: FontWeight.bold)),
                       SizedBox(
@@ -169,25 +169,27 @@ class _task1State extends State<task1> {
                       SizedBox(
                         height: 30,
                       ),
-                      Container(
-                        height: 35,
-                        width: 80,
-                        padding: EdgeInsets.only(top: 4),
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 10,
-                                  color: Color.fromARGB(255, 235, 189, 25),
-                                  offset: Offset(1, 3))
-                            ],
-                            color: Color(0xFFffbc01),
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Text("Buy",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                            )),
+                      Expanded(
+                        child: Container(
+                          height: 35,
+                          width: 80,
+                          padding: EdgeInsets.only(top: 4),
+                          decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 10,
+                                    color: Color.fromARGB(255, 235, 189, 25),
+                                    offset: Offset(1, 3))
+                              ],
+                              color: Color(0xFFffbc01),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Text("Buy",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                              )),
+                        ),
                       ),
                     ],
                   ),
