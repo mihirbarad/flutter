@@ -194,15 +194,17 @@ class _task1State extends State<task1> {
                     ],
                   ),
                 ),
-                Container(
-                    height: 455,
-                    width: 45,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          bottomLeft: Radius.circular(50),
-                        ),
-                        color: Colors.white)),
+                Expanded(
+                  child: Container(
+                      height: 455,
+                      width: 45,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(50),
+                            bottomLeft: Radius.circular(50),
+                          ),
+                          color: Colors.white)),
+                ),
               ],
             ),
             Container(

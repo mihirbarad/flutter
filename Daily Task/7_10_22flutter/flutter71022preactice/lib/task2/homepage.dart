@@ -192,7 +192,7 @@ class _homepagesState extends State<homepages> {
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: Color.fromARGB(255, 164, 66, 8)),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -443,7 +443,7 @@ class _homepagesState extends State<homepages> {
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Color.fromARGB(255, 164, 66, 8)),
-                )
+                ),
               ],
             ),
           ),

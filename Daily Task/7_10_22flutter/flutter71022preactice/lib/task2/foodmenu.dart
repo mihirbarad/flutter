@@ -38,7 +38,7 @@ class _profileState extends State<foodmenu> {
                 ),
               ),
               Text(
-                "Rs:150",
+                "₹150",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class _profileState extends State<foodmenu> {
                 ),
               ),
               Text(
-                "Rs:99",
+                "₹99",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -84,7 +84,7 @@ class _profileState extends State<foodmenu> {
                 ),
               ),
               Text(
-                "Rs:80",
+                "₹80",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ class _profileState extends State<foodmenu> {
                 ),
               ),
               Text(
-                "Rs:350",
+                "₹350",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -130,7 +130,7 @@ class _profileState extends State<foodmenu> {
                 ),
               ),
               Text(
-                "Rs:250",
+                "₹250",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

@@ -106,29 +106,31 @@ class _registerState extends State<register> {
           ],
         ),
         SizedBox(height: 51),
-        Container(
-          padding: EdgeInsets.only(top: 50),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 123, 66, 20),
-                  Color.fromARGB(255, 163, 107, 62)
-                ],
-                begin: Alignment.bottomLeft,
-                end: Alignment.topRight,
-              ),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(80),
-                topRight: Radius.circular(80),
-              )),
-          child: Text("Version 1.0",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white)),
-          height: 80,
-          width: double.maxFinite,
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.only(top: 40),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 123, 66, 20),
+                    Color.fromARGB(255, 163, 107, 62)
+                  ],
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                ),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(80),
+                  topRight: Radius.circular(80),
+                )),
+            child: Text("Version 1.0",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white)),
+            height: 80,
+            width: double.maxFinite,
+          ),
         ),
       ],
     ));

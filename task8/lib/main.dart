@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
                 children: [
                   Container(
                       // margin: EdgeInsets.all(10),
-                      width: 200,
+                      width: 180,
                       height: 410,
                       color: Color(0xFF2aa650)),
                 ],

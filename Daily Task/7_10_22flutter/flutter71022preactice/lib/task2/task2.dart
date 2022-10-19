@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter71022preactice/task2/foodmenu.dart';
 import 'package:flutter71022preactice/task2/homepage.dart';
+import 'package:flutter71022preactice/task2/itemscreens/messege.dart';
+import 'package:flutter71022preactice/task2/itemscreens/referandearn.dart';
 import 'package:flutter71022preactice/task2/profile.dart';
 
 class task2 extends StatefulWidget {
@@ -149,6 +151,24 @@ class _task2State extends State<task2> {
                       Navigator.pop(context);
                     },
                   ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.card_giftcard_sharp,
+                      color: Color.fromARGB(255, 196, 85, 20),
+                    ),
+                    title: Text(
+                      "Refer and Earn",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 196, 85, 20),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Share()));
+                    },
+                  ),
                 ],
               ),
             ),
@@ -238,7 +258,14 @@ class _task2State extends State<task2> {
               )),
           toolbarHeight: 70,
           actions: [
-            Container(margin: EdgeInsets.all(20), child: Icon(Icons.message))
+            Container(
+                margin: EdgeInsets.all(20),
+                child: InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Messege()));
+                    },
+                    child: Icon(Icons.message)))
           ],
           flexibleSpace: Container(
             decoration: const BoxDecoration(
