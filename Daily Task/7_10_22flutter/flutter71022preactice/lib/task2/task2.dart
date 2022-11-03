@@ -64,7 +64,11 @@ class _task2State extends State<task2> {
                             size: 45,
                           ))),
                   SizedBox(
-                    height: 40,
+                    height: 6,
+                  ),
+                  Image.asset('asset/happydiwali.png', height: 120),
+                  SizedBox(
+                    height: 6,
                   ),
                   ListTile(
                     leading: Icon(

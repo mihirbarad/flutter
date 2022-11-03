@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter71022preactice/task2/task2.dart';
+import 'package:confetti/confetti.dart';
 
 class login extends StatefulWidget {
   login({Key? key}) : super(key: key);
@@ -10,13 +13,49 @@ class login extends StatefulWidget {
 
 class _loginState extends State<login> {
   bool? valuefirst = false;
+  late ConfettiController _confettiController;
   TextEditingController nameController = TextEditingController();
   TextEditingController numberController = TextEditingController();
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _confettiController =
+        ConfettiController(duration: const Duration(seconds: 10));
+  }
+
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _confettiController.dispose();
+  }
+
+  Path drawStar(Size size) {
+    // Method to convert degree to radians
+    double degToRad(double deg) => deg * (pi / 180.0);
+    const numberOfPoints = 5;
+    final halfWidth = size.width / 2;
+    final externalRadius = halfWidth;
+    final internalRadius = halfWidth / 2.5;
+    final degreesPerStep = degToRad(360 / numberOfPoints);
+    final halfDegreesPerStep = degreesPerStep / 2;
+    final path = Path();
+    final fullAngle = degToRad(360);
+    path.moveTo(size.width, halfWidth);
+    for (double step = 0; step < fullAngle; step += degreesPerStep) {
+      path.lineTo(halfWidth + externalRadius * cos(step),
+          halfWidth + externalRadius * sin(step));
+      path.lineTo(halfWidth + internalRadius * cos(step + halfDegreesPerStep),
+          halfWidth + internalRadius * sin(step + halfDegreesPerStep));
+    }
+    path.close();
+    return path;
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-          body: SingleChildScrollView(
+        child: Scaffold(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
@@ -37,13 +76,36 @@ class _loginState extends State<login> {
                       color: Color(0xffc14b09),
                     ),
                   ),
-                  Text(
-                    "Food Delivery App",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromARGB(255, 115, 68, 40)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: Image.asset(
+                          'asset/pngfind.com-diwali-png-images-426064.png',
+                          height: 30,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        "Food Delivery App",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 115, 68, 40)),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        child: Image.asset(
+                          'asset/pngfind.com-diwali-png-images-426064.png',
+                          height: 30,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -230,7 +292,7 @@ class _loginState extends State<login> {
               ],
             ),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -254,7 +316,7 @@ class _loginState extends State<login> {
             )
           ],
         ),
-      )),
-    );
+      ),
+    ));
   }
 }

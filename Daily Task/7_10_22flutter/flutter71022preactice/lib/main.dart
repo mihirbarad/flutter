@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: task1(),
+      home: slepsh(),
     );
   }
 }
@@ -40,32 +40,57 @@ class _slepshState extends State<slepsh> {
   void initState() {
     super.initState();
     Timer(
-      Duration(seconds: 3),
-      () => Navigator.push(
-          context, MaterialPageRoute(builder: (context) => login())),
-    );
+        const Duration(seconds: 3),
+        () => Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => login()),
+            (route) => false));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Stack(
         children: [
-          Image.asset(
-            'asset/chines.png',
-            height: 400,
-          ),
           SizedBox(
-            height: 30,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Image.asset(
+              'asset/diwali.gif',
+              height: 120,
+              fit: BoxFit.cover,
+            ),
           ),
-          SpinKitRipple(
-            color: Color.fromARGB(255, 164, 66, 8),
-            size: 120,
+          const Center(
+            child: Text(
+              'Happy\nDiwali',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 60,
+              ),
+            ),
           )
         ],
       ),
+      // Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   crossAxisAlignment: CrossAxisAlignment.center,
+      //   children: [
+      //     Image.asset(
+      //       'asset/chines.png',
+      //       height: 400,
+      //     ),
+      //     SizedBox(
+      //       height: 30,
+      //     ),
+      //     SpinKitRipple(
+      //       color: Color.fromARGB(255, 164, 66, 8),
+      //       size: 120,
+      //     )
+      //   ],
+      // ),
     );
   }
 }
