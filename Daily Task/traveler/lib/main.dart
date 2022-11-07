@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:traveler/screen/go.dart';
 import 'package:traveler/screen/homepage.dart';
 import 'package:traveler/screen/loginscreen.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: slepsh(),
     );
   }
 }

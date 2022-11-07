@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:traveler/screen/go.dart';
 import 'package:traveler/screen/homepage.dart';
 
 class Login extends StatefulWidget {
@@ -162,7 +163,7 @@ class _LoginState extends State<Login> {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Homepage()));
+                        MaterialPageRoute(builder: (context) => bhavnagar()));
                   },
                   child: Text(
                     "Login",

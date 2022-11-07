@@ -65,11 +65,8 @@ class HomepageState extends State<Homepage> {
                 Container(
                   child: ElevatedButton(
                     onPressed: () {
-                      if (cityController == "bhavnagar") {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => go()));
-                      }
-                      print(cityController);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => bhavnagar()));
                     },
                     child: Text(
                       "Go",
