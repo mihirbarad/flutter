@@ -40,7 +40,7 @@ class _slepshState extends State<slepsh> {
       duration: 5000,
       imageSize: 350,
       pageRouteTransition: PageRouteTransition.SlideTransition,
-      imageSrc: "assets/Bepw.gif",
+      imageSrc: "assets/traveling.png",
       text: "Travelogue",
       textType: TextType.ColorizeAnimationText,
       textStyle: TextStyle(

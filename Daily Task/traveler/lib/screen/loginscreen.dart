@@ -11,6 +11,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController nameController = TextEditingController();
   bool? valuefirst = false;
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class _LoginState extends State<Login> {
                   textStyle: TextStyle(
                       fontSize: 50,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(190, 7, 142, 252),
+                      color: Color.fromARGB(248, 141, 115, 29),
                       letterSpacing: .10),
                 ),
               ),
@@ -45,6 +46,7 @@ class _LoginState extends State<Login> {
               Container(
                 width: MediaQuery.of(context).size.height / 2.5,
                 child: TextFormField(
+                  controller: nameController,
                   style: TextStyle(
                     fontSize: 16,
                     color: Color.fromARGB(255, 14, 69, 83),
@@ -55,13 +57,13 @@ class _LoginState extends State<Login> {
                     //add prefix icon
                     prefixIcon: Icon(
                       Icons.person,
-                      color: Color.fromARGB(255, 93, 171, 189),
+                      color: Color.fromARGB(248, 141, 115, 29),
                     ),
 
                     labelText: 'Full Name',
                     labelStyle: TextStyle(
                       fontSize: 16,
-                      color: Color.fromARGB(255, 19, 160, 196),
+                      color: Color.fromARGB(248, 141, 115, 29),
                       fontWeight: FontWeight.w600,
                     ),
                     border: OutlineInputBorder(
@@ -70,7 +72,7 @@ class _LoginState extends State<Login> {
 
                     focusedBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 0, 67, 211), width: 1.0),
+                          color: Color.fromARGB(248, 255, 219, 99), width: 1.0),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     fillColor: Color.fromARGB(255, 123, 246, 255),
@@ -93,13 +95,13 @@ class _LoginState extends State<Login> {
                     //add prefix icon
                     prefixIcon: Icon(
                       Icons.call,
-                      color: Color.fromARGB(255, 93, 171, 189),
+                      color: Color.fromARGB(248, 141, 115, 29),
                     ),
 
                     labelText: 'Mobile No',
                     labelStyle: TextStyle(
                       fontSize: 16,
-                      color: Color.fromARGB(255, 19, 160, 196),
+                      color: Color.fromARGB(248, 141, 115, 29),
                       fontWeight: FontWeight.w600,
                     ),
                     border: OutlineInputBorder(
@@ -111,7 +113,7 @@ class _LoginState extends State<Login> {
                           color: Color.fromARGB(255, 0, 67, 211), width: 1.0),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    fillColor: Color.fromARGB(255, 123, 246, 255),
+                    fillColor: Color.fromARGB(248, 141, 115, 29),
                   ),
                 ),
               ),
@@ -162,8 +164,12 @@ class _LoginState extends State<Login> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => bhavnagar()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => bhavnagar(
+                                  name: nameController.text.toString(),
+                                )));
                   },
                   child: Text(
                     "Login",
@@ -171,7 +177,7 @@ class _LoginState extends State<Login> {
                   ),
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(150, 45),
-                    primary: Color.fromARGB(255, 6, 136, 197),
+                    primary: Color.fromARGB(255, 196, 159, 38),
                     // side: BorderSide(
                     //     color: Color.fromARGB(255, 6, 136, 197), width: 2),
                     textStyle: const TextStyle(
