@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_7_11/user/adduser.dart';
 import 'package:flutter_7_11/user/user.dart';
 
 class Mymaindb extends StatefulWidget {
@@ -60,7 +61,9 @@ class _MymaindbState extends State<Mymaindb> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AddUser()));
+        },
         child: Icon(Icons.add),
         backgroundColor: Colors.black,
         foregroundColor: Colors.teal,
