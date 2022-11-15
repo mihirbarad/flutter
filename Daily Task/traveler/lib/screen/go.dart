@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
+import 'package:flutter/widgets.dart';
 import 'package:marquee/marquee.dart';
+import 'package:traveler/screen/bestplace.dart';
+import 'package:traveler/screen/histrycard.dart';
+import 'package:traveler/screen/colors.dart';
+import 'package:traveler/screen/history.dart';
+import 'package:traveler/screen/referandearn.dart';
+import 'package:traveler/screen/webview.dart';
 
 class bhavnagar extends StatefulWidget {
   var name;
@@ -13,10 +20,181 @@ class bhavnagar extends StatefulWidget {
 
 class bhavnagarState extends State<bhavnagar> {
   TextEditingController cityController = TextEditingController();
-
+  final GlobalKey<ScaffoldState> _key = GlobalKey(); // Create a key
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 120,
+                  ),
+                  Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    decoration: BoxDecoration(
+                        color: ColorConstants.kPrimaryColor,
+                        borderRadius: BorderRadius.circular(50)),
+                    child: Center(
+                      child: Text(
+                        "ભાવ ભરિયુ  ભાવનગર",
+                        style: TextStyle(
+                            fontSize: 28,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.home,
+                      color: Color.fromARGB(255, 196, 85, 20),
+                    ),
+                    title: Text(
+                      "Home",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 196, 85, 20),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.wallet,
+                      color: Color.fromARGB(255, 196, 85, 20),
+                    ),
+                    title: Text(
+                      "wallet",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 196, 85, 20),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.contacts,
+                      color: Color.fromARGB(255, 196, 85, 20),
+                    ),
+                    title: Text(
+                      "Contact Us",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 196, 85, 20),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.offline_pin_sharp,
+                      color: Color.fromARGB(255, 196, 85, 20),
+                    ),
+                    title: Text(
+                      "Offer",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 196, 85, 20),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.question_mark,
+                      color: Color.fromARGB(255, 196, 85, 20),
+                    ),
+                    title: Text(
+                      "About us",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 196, 85, 20),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.card_giftcard_sharp,
+                      color: Color.fromARGB(255, 196, 85, 20),
+                    ),
+                    title: Text(
+                      "Refer and Earn",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 196, 85, 20),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Share()));
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Container(
+                child: Align(
+                    alignment: FractionalOffset.bottomCenter,
+                    child: Column(
+                      children: <Widget>[
+                        Divider(),
+                        ListTile(
+                            leading: Icon(
+                              Icons.settings,
+                              color: Color.fromARGB(255, 196, 85, 20),
+                            ),
+                            title: Text(
+                              'Settings',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 196, 85, 20),
+                              ),
+                            )),
+                        ListTile(
+                            leading: Icon(
+                              Icons.logout,
+                              color: Color.fromARGB(255, 196, 85, 20),
+                            ),
+                            title: Text(
+                              'LogOut',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 196, 85, 20),
+                              ),
+                            ))
+                      ],
+                    ))),
+          ],
+        ),
+      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
@@ -26,7 +204,30 @@ class bhavnagarState extends State<bhavnagar> {
               SizedBox(
                 height: 60,
               ),
-
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () => _key.currentState!.openDrawer(),
+                    child: Container(
+                      margin: EdgeInsets.all(10),
+                      child: Icon(
+                        Icons.menu,
+                        size: 35,
+                        color: ColorConstants.kPrimaryColor,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Icon(Icons.notifications,
+                        size: 35, color: ColorConstants.kPrimaryColor),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
               Text(
                 "Welcome to Bhavnagar",
                 style: TextStyle(
@@ -43,13 +244,42 @@ class bhavnagarState extends State<bhavnagar> {
                       color: Color.fromARGB(255, 147, 88, 16)),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.all(10),
-                child: Image.asset(
-                  'assets/underline.png',
-                  height: 80,
-                  color: Colors.brown,
-                ),
+              Row(
+                children: [
+                  Container(
+                    child: Image.asset(
+                      'assets/desing.png',
+                      height: 50,
+                      color: Colors.brown,
+                    ),
+                  ),
+                  Container(
+                    child: Image.asset(
+                      'assets/desing.png',
+                      height: 50,
+                      color: Colors.brown,
+                    ),
+                  ),
+                  Container(
+                    child: Image.asset(
+                      'assets/desing.png',
+                      height: 50,
+                      color: Colors.brown,
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      child: Image.asset(
+                        'assets/desing.png',
+                        height: 50,
+                        color: Colors.brown,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
               ),
               SizedBox(
                 height: 30,
@@ -72,76 +302,6 @@ class bhavnagarState extends State<bhavnagar> {
                   ),
                 ),
               ),
-              ListView(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                children: [
-                  CarouselSlider(
-                    items: [
-                      Container(
-                        margin: EdgeInsets.all(6.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          image: DecorationImage(
-                            image: AssetImage("assets/veraval.jpg"),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(6.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          image: DecorationImage(
-                            image: AssetImage("assets/pichal.jpg"),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(6.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          image: DecorationImage(
-                            image: AssetImage("assets/wwe.jpeg"),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(6.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          image: DecorationImage(
-                            image: AssetImage("assets/hotes.png"),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(6.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          image: DecorationImage(
-                            image: AssetImage("assets/pichal.jpg"),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ],
-                    options: CarouselOptions(
-                      height: 180.0,
-                      enlargeCenterPage: true,
-                      autoPlay: true,
-                      aspectRatio: 16 / 9,
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enableInfiniteScroll: true,
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
-                      viewportFraction: 0.8,
-                    ),
-                  ),
-                ],
-              ),
 
               SizedBox(
                 height: 20,
@@ -151,15 +311,28 @@ class bhavnagarState extends State<bhavnagar> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onDoubleTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => card(),
+                          ));
+                    },
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => history(),
+                          ));
+                    },
                     child: Container(
                       margin: EdgeInsets.all(10),
-                      height: MediaQuery.of(context).size.height / 4.1,
-                      width: MediaQuery.of(context).size.height / 4.8,
+                      height: MediaQuery.of(context).size.height / 4.5,
+                      width: MediaQuery.of(context).size.height / 4.5,
                       decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Color.fromARGB(233, 148, 148, 148),
+                              color: Color.fromARGB(233, 125, 124, 124),
                               blurRadius: 5.0,
                             ),
                           ],
@@ -179,7 +352,7 @@ class bhavnagarState extends State<bhavnagar> {
                           children: [
                             Image.asset(
                               'assets/history .png',
-                              height: MediaQuery.of(context).size.height / 5,
+                              height: MediaQuery.of(context).size.height / 5.5,
                             ),
                             Text(
                               "History",
@@ -194,49 +367,58 @@ class bhavnagarState extends State<bhavnagar> {
                       ),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    height: MediaQuery.of(context).size.height / 4.1,
-                    width: MediaQuery.of(context).size.height / 4.8,
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color.fromARGB(233, 86, 86, 86),
-                            blurRadius: 5.0,
-                          ),
-                        ],
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color.fromARGB(255, 240, 203, 159),
-                            Color.fromARGB(255, 240, 203, 159),
-                            Color.fromARGB(255, 237, 149, 40),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => bestplace(),
+                          ));
+                    },
+                    child: Container(
+                      margin: EdgeInsets.all(10),
+                      height: MediaQuery.of(context).size.height / 4.5,
+                      width: MediaQuery.of(context).size.height / 4.5,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(233, 86, 86, 86),
+                              blurRadius: 5.0,
+                            ),
                           ],
-                          begin: Alignment.bottomLeft,
-                          end: Alignment.topRight,
-                          tileMode: TileMode.repeated,
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color.fromARGB(255, 240, 203, 159),
+                              Color.fromARGB(255, 240, 203, 159),
+                              Color.fromARGB(255, 237, 149, 40),
+                            ],
+                            begin: Alignment.bottomLeft,
+                            end: Alignment.topRight,
+                            tileMode: TileMode.repeated,
+                          ),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/place.png',
+                              height: MediaQuery.of(context).size.height / 7.8,
+                              color: Colors.brown,
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Best Place",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 20,
+                                  color: Colors.brown),
+                            ),
+                          ],
                         ),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/place.png',
-                            height: MediaQuery.of(context).size.height / 7.2,
-                            color: Colors.brown,
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Best Place",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                                color: Colors.brown),
-                          ),
-                        ],
                       ),
                     ),
                   ),
@@ -247,8 +429,8 @@ class bhavnagarState extends State<bhavnagar> {
                 children: [
                   Container(
                     margin: EdgeInsets.all(10),
-                    height: MediaQuery.of(context).size.height / 4.1,
-                    width: MediaQuery.of(context).size.height / 4.8,
+                    height: MediaQuery.of(context).size.height / 4.5,
+                    width: MediaQuery.of(context).size.height / 4.5,
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -272,7 +454,7 @@ class bhavnagarState extends State<bhavnagar> {
                         children: [
                           Image.asset(
                             'assets/hotels.png',
-                            height: MediaQuery.of(context).size.height / 6.2,
+                            height: MediaQuery.of(context).size.height / 6.5,
                             color: Colors.brown,
                           ),
                           SizedBox(
@@ -292,8 +474,8 @@ class bhavnagarState extends State<bhavnagar> {
                   ),
                   Container(
                     margin: EdgeInsets.all(10),
-                    height: MediaQuery.of(context).size.height / 4.1,
-                    width: MediaQuery.of(context).size.height / 4.8,
+                    height: MediaQuery.of(context).size.height / 4.5,
+                    width: MediaQuery.of(context).size.height / 4.5,
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -317,7 +499,7 @@ class bhavnagarState extends State<bhavnagar> {
                         children: [
                           Image.asset(
                             'assets/restoo.png',
-                            height: MediaQuery.of(context).size.height / 5,
+                            height: MediaQuery.of(context).size.height / 5.8,
                           ),
                           Text(
                             "Restaurants",

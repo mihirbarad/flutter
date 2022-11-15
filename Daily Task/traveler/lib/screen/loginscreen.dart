@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:traveler/screen/colors.dart';
 import 'package:traveler/screen/go.dart';
 import 'package:traveler/screen/homepage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -164,12 +166,36 @@ class _LoginState extends State<Login> {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => bhavnagar(
-                                  name: nameController.text.toString(),
-                                )));
+                    var name = nameController.text.toString();
+
+                    if (name == 'mihir barad') {
+                      setState(() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => bhavnagar(
+                                      name: nameController.text.toString(),
+                                    )));
+                      });
+
+                      Fluttertoast.showToast(
+                          msg: 'Thanks For Login ',
+                          gravity: ToastGravity.TOP,
+                          backgroundColor: ColorConstants.kPrimaryColor,
+                          webShowClose: false,
+                          fontSize: 18,
+                          timeInSecForIosWeb: 2,
+                          toastLength: Toast.LENGTH_LONG);
+                    } else {
+                      Fluttertoast.showToast(
+                          msg: 'Enter Valid Iteam ',
+                          gravity: ToastGravity.BOTTOM,
+                          backgroundColor: ColorConstants.kPrimaryColor,
+                          webShowClose: false,
+                          fontSize: 18,
+                          timeInSecForIosWeb: 2,
+                          toastLength: Toast.LENGTH_LONG);
+                    }
                   },
                   child: Text(
                     "Login",

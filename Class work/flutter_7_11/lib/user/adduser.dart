@@ -38,13 +38,33 @@ class _AddUserState extends State<AddUser> {
                 errorStyle: TextStyle(
                   color: Colors.red,
                 ),
+                errorText: nameValidator ? "field error " : null,
                 labelStyle: TextStyle(color: Colors.white),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.white, width: 2),
                 ),
               ),
+              onTap: () {},
               cursorColor: Colors.brown,
             ),
+            SizedBox(height: 20),
+            TextFormField(
+              controller: contectController,
+              decoration: InputDecoration(
+                icon: Icon(Icons.person),
+                errorStyle: TextStyle(
+                  color: Colors.red,
+                ),
+                errorText: contectValidator ? "field error " : null,
+                labelStyle: TextStyle(color: Colors.white),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white, width: 2),
+                ),
+              ),
+              onTap: () {},
+              cursorColor: Colors.brown,
+            ),
+            ElevatedButton(onPressed: () {}, child: Text("Save"))
           ],
         ),
       ),
