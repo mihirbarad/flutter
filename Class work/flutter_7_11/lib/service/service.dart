@@ -9,18 +9,18 @@ class UserService {
   }
 
   saveData(User user) async {
-    return _repository.insertData("mytable", user.userMap());
+    return await _repository.insertData("user", user.userMap());
   }
 
-  readAllData() {
-    return _repository.readData("mytable");
+  readAllData() async {
+    return await _repository.readData("user");
   }
 
-  updateData(User user) {
-    return _repository.updateData("mytable", user.userMap());
+  updateData(User user) async {
+    return await _repository.updateData("user", user.userMap());
   }
 
-  deleteData(userid) {
-    return _repository.deleteData("mytable", userid);
+  deleteData(userid) async {
+    return await _repository.deleteData("user", userid);
   }
 }

@@ -9,5 +9,7 @@ class User {
     mapping['id'] = id ?? null;
     mapping['name'] = name!;
     mapping['contact'] = contact!;
+
+    return mapping;
   }
 }

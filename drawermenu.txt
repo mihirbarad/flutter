@@ -1,0 +1,12 @@
+A drawer is an invisible side screen,It is a sliding 
+left menu that generally contains import link
+in the application and occupies half of the screen
+when displayed. 
+
+syntax: 
+
+scaffold(
+drawer: Drawer(
+child: //populate the drawer by adding contect in
+next step.
+))

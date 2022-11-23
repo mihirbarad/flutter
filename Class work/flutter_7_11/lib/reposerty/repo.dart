@@ -19,6 +19,7 @@ class Repository {
 
   insertData(table, data) async {
     var connection = await database;
+    print("----Inster $data");
     return await connection?.insert(table, data);
   }
 
@@ -29,18 +30,18 @@ class Repository {
 
   readSpecificData(table, itemID) async {
     var connection = await database;
-    return await connection!.query(table, where: "id = ?", whereArgs: [itemID]);
+    return await connection?.query(table, where: "id = ?", whereArgs: [itemID]);
   }
 
   updateData(table, data) async {
     var connection = await database;
-    return await connection!
-        .update(table, data, where: "id = ?", whereArgs: [data["id"]]);
+    return await connection
+        ?.update(table, data, where: "id = ?", whereArgs: [data["id"]]);
   }
 
   deleteData(table, itemid) async {
     var connection = await database;
 
-    return await connection!.delete(table, where: "id = ? ", whereArgs: itemid);
+    return await connection?.delete(table, where: "id = ? ", whereArgs: itemid);
   }
 }

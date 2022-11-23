@@ -4,6 +4,7 @@ import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter71022preactice/task2/itemscreens/italian.dart';
+;
 
 class homepages extends StatefulWidget {
   homepages({Key? key}) : super(key: key);

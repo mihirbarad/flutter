@@ -34,7 +34,7 @@ class _MymaindbState extends State<Mymaindb> {
               subtitle: Text("Contact"),
               trailing: Expanded(
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width / 5,
+                  width: MediaQuery.of(context).size.width / 2.5,
                   child: Row(
                     children: [
                       ElevatedButton(
@@ -62,7 +62,8 @@ class _MymaindbState extends State<Mymaindb> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => AddUser()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => AddUser()));
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.black,

@@ -168,34 +168,21 @@ class _LoginState extends State<Login> {
                   onPressed: () {
                     var name = nameController.text.toString();
 
-                    if (name == 'mihir barad') {
-                      setState(() {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => bhavnagar(
-                                      name: nameController.text.toString(),
-                                    )));
-                      });
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => bhavnagar(
+                                  name: nameController.text.toString(),
+                                )));
 
-                      Fluttertoast.showToast(
-                          msg: 'Thanks For Login ',
-                          gravity: ToastGravity.TOP,
-                          backgroundColor: ColorConstants.kPrimaryColor,
-                          webShowClose: false,
-                          fontSize: 18,
-                          timeInSecForIosWeb: 2,
-                          toastLength: Toast.LENGTH_LONG);
-                    } else {
-                      Fluttertoast.showToast(
-                          msg: 'Enter Valid Iteam ',
-                          gravity: ToastGravity.BOTTOM,
-                          backgroundColor: ColorConstants.kPrimaryColor,
-                          webShowClose: false,
-                          fontSize: 18,
-                          timeInSecForIosWeb: 2,
-                          toastLength: Toast.LENGTH_LONG);
-                    }
+                    Fluttertoast.showToast(
+                        msg: 'Thanks For Login ',
+                        gravity: ToastGravity.TOP,
+                        backgroundColor: ColorConstants.kPrimaryColor,
+                        webShowClose: false,
+                        fontSize: 18,
+                        timeInSecForIosWeb: 2,
+                        toastLength: Toast.LENGTH_LONG);
                   },
                   child: Text(
                     "Login",
