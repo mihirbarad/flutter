@@ -51,7 +51,7 @@ class _letsgoState extends State<letsgo> {
           Padding(
             padding: const EdgeInsets.only(top: 30, right: 20, bottom: 30),
             child: Badge(
-              badgeContent: Text('3'),
+              badgeContent: Text('5'),
               child: Icon(
                 Icons.person_pin_sharp,
                 color: Colors.black,
@@ -82,12 +82,7 @@ class _letsgoState extends State<letsgo> {
           },
           children: <Widget>[
             firstpage(sendname: widget.loginname),
-            Container(
-              child: Image.network(
-                'https://previews.123rf.com/images/nalinn/nalinn1504/nalinn150401764/38910765-website-under-construction-black-and-white-background-image-landing-page-with-a-working-man.jpg',
-                fit: BoxFit.fitWidth,
-              ),
-            ),
+            Gallery(),
             Container(
               child: Image.network(
                 'https://previews.123rf.com/images/nalinn/nalinn1504/nalinn150401764/38910765-website-under-construction-black-and-white-background-image-landing-page-with-a-working-man.jpg',
@@ -335,5 +330,53 @@ class firstpage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class Gallery extends StatefulWidget {
+  const Gallery({super.key});
+
+  @override
+  State<Gallery> createState() => _GalleryState();
+}
+
+class _GalleryState extends State<Gallery> {
+  List imageurl = [
+    'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
+    'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
+    'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
+    'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
+    'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: GridView.builder(
+          itemCount: 10,
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3, crossAxisSpacing: 4.0, mainAxisSpacing: 4.0),
+          itemBuilder: (BuildContext context, int index) {
+            return GestureDetector(
+              onTap: () {
+                Image(
+                    image:
+                        NetworkImage('${imageurl[index % imageurl.length]}'));
+              },
+              child: Container(
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(255, 225, 224, 224)),
+                child: Image.network(
+                  '${imageurl[index % imageurl.length]}',
+                  height: 30,
+                  fit: BoxFit.fill,
+                ),
+              ),
+            );
+          },
+        ));
   }
 }

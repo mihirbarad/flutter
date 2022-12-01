@@ -42,6 +42,10 @@ dependencies:
   badges: ^2.0.3
   flutter_neumorphic: ^3.2.0
   custom_refresh_indicator: ^2.0.1
+  sizer: ^2.0.15
+  webview_flutter: ^3.0.4
+  page_transition: ^2.0.9
+  fullscreen: ^1.0.3
 
 dev_dependencies:
   flutter_test:

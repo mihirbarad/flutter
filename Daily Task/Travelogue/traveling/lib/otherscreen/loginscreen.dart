@@ -85,6 +85,8 @@ class _LoginState extends State<Login> {
               Container(
                 width: MediaQuery.of(context).size.height / 2.5,
                 child: TextFormField(
+                  maxLength: 10,
+                  keyboardType: TextInputType.number,
                   style: TextStyle(
                     fontSize: 16,
                     color: Color.fromARGB(255, 14, 69, 83),

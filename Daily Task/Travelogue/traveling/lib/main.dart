@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'package:splash_screen_view/SplashScreenView.dart';
-import 'package:traveling/fresh.dart';
 
 import 'package:traveling/otherscreen/loginscreen.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,10 +17,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: PlaneIndicator(child: Text('sd')),
-    );
+    return Sizer(builder: (context, orientation, deviceType) {
+      return MaterialApp(debugShowCheckedModeBanner: false, home: slepsh());
+    });
   }
 }
 
@@ -32,7 +31,6 @@ class slepsh extends StatefulWidget {
 }
 
 class _slepshState extends State<slepsh> {
-  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
