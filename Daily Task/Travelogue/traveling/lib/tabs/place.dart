@@ -85,10 +85,11 @@ class _placeState extends State<place> {
                     });
                   },
                   child: Container(
-                    height: MediaQuery.of(context).size.height / 16,
+                    height: MediaQuery.of(context).size.height / 15,
                     width: MediaQuery.of(context).size.width / 12,
-                    padding: EdgeInsets.all(8),
-                    margin: EdgeInsets.all(8),
+                    padding: EdgeInsets.all(3),
+                    margin: EdgeInsets.all(
+                        MediaQuery.of(context).size.height / 120),
                     decoration: BoxDecoration(
                       // color: _isSelected
                       //     ? Color.fromARGB(255, 199, 199, 204)

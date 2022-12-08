@@ -278,27 +278,14 @@ class bhavnagarState extends State<bhavnagar> {
               ),
 
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    onDoubleTap: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => card(),
-                      //     ));
-                    },
-                    onTap: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => history(),
-                      //     ));
-                    },
+                    onDoubleTap: () {},
+                    onTap: () {},
                     child: Container(
                       margin: EdgeInsets.all(10),
-                      height: MediaQuery.of(context).size.height / 4.5,
-                      width: MediaQuery.of(context).size.height / 4.5,
+                      height: MediaQuery.of(context).size.height / 5,
+                      width: MediaQuery.of(context).size.height / 5,
                       decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
@@ -322,7 +309,7 @@ class bhavnagarState extends State<bhavnagar> {
                           children: [
                             Image.asset(
                               'assets/history .png',
-                              height: MediaQuery.of(context).size.height / 5.5,
+                              height: MediaQuery.of(context).size.height / 6,
                             ),
                             Text(
                               "History",
@@ -347,8 +334,8 @@ class bhavnagarState extends State<bhavnagar> {
                     },
                     child: Container(
                       margin: EdgeInsets.all(10),
-                      height: MediaQuery.of(context).size.height / 4.5,
-                      width: MediaQuery.of(context).size.height / 4.5,
+                      height: MediaQuery.of(context).size.height / 5,
+                      width: MediaQuery.of(context).size.height / 5,
                       decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
@@ -395,12 +382,11 @@ class bhavnagarState extends State<bhavnagar> {
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     margin: EdgeInsets.all(10),
-                    height: MediaQuery.of(context).size.height / 4.5,
-                    width: MediaQuery.of(context).size.height / 4.5,
+                    height: MediaQuery.of(context).size.height / 5,
+                    width: MediaQuery.of(context).size.height / 5,
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -424,7 +410,7 @@ class bhavnagarState extends State<bhavnagar> {
                         children: [
                           Image.asset(
                             'assets/hotels.png',
-                            height: MediaQuery.of(context).size.height / 6.5,
+                            height: MediaQuery.of(context).size.height / 7,
                             color: Colors.brown,
                           ),
                           SizedBox(
@@ -444,8 +430,8 @@ class bhavnagarState extends State<bhavnagar> {
                   ),
                   Container(
                     margin: EdgeInsets.all(10),
-                    height: MediaQuery.of(context).size.height / 4.5,
-                    width: MediaQuery.of(context).size.height / 4.5,
+                    height: MediaQuery.of(context).size.height / 5,
+                    width: MediaQuery.of(context).size.height / 5,
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(

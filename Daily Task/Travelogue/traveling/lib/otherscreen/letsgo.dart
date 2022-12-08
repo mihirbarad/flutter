@@ -1,11 +1,14 @@
-import 'dart:convert';
+import 'dart:async';
+import 'dart:io';
 
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/services.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 import 'package:traveling/otherscreen/bhavnagar.dart';
 
 import 'package:traveling/tabs/place.dart';
@@ -20,154 +23,278 @@ class letsgo extends StatefulWidget {
 }
 
 class _letsgoState extends State<letsgo> {
-  int _currentIndex = 0;
-
-  late PageController _pageController;
+  Map _source = {ConnectivityResult.none: false};
+  final NetworkConnectivity _networkConnectivity = NetworkConnectivity.instance;
+  String string = '';
 
   @override
   void initState() {
     super.initState();
+    _networkConnectivity.initialise();
+    _networkConnectivity.myStream.listen((source) {
+      _source = source;
+      print('-----source $_source----');
+      // 1.
+      switch (_source.keys.toList()[0]) {
+        case ConnectivityResult.mobile:
+          string = _source.values.toList()[0]
+              ? 'Mobile Data is On'
+              : 'Mobile Data is OFF';
+          break;
+        case ConnectivityResult.wifi:
+          string = _source.values.toList()[0] ? 'Wifi is On' : 'Wifi is OFF';
+          break;
+        case ConnectivityResult.none:
+        default:
+          string = 'Offline';
+      }
+      // 2.
+      setState(() {});
+      // 3.
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Color.fromARGB(255, 187, 187, 187),
+          content: Text(
+            string,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Color.fromARGB(255, 255, 255, 255)),
+          ),
+        ),
+      );
+    });
     _pageController = PageController();
+  }
+
+  int _currentIndex = 0;
+
+  late PageController _pageController;
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+          context: context,
+          builder: (context) => new AlertDialog(
+            title: new Text('Are you sure?'),
+            content: new Text('Do you want to exit '),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: new Text('No'),
+              ),
+              TextButton(
+                onPressed: () => exit(0),
+                child: new Text('Yes'),
+              ),
+            ],
+          ),
+        )) ??
+        false;
   }
 
   @override
   void dispose() {
     _pageController.dispose();
+    _networkConnectivity.disposeStream();
     super.dispose();
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        toolbarHeight: 80,
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-        leading: Icon(
-          Icons.menu_sharp,
-          color: Colors.black,
-          size: 40,
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(top: 30, right: 20, bottom: 30),
-            child: Badge(
-              badgeContent: Text('5'),
-              child: Icon(
-                Icons.person_pin_sharp,
-                color: Colors.black,
-                size: 30,
+    if (string == 'Mobile Data is On' || string == 'Wifi is On') {
+      return WillPopScope(
+        onWillPop: _onWillPop,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            toolbarHeight: 80,
+            systemOverlayStyle: SystemUiOverlayStyle.light,
+            leading: Icon(
+              Icons.menu_sharp,
+              color: Colors.black,
+              size: 40,
+            ),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(top: 30, right: 20, bottom: 30),
+                child: Badge(
+                  badgeContent: Text('5'),
+                  child: Icon(
+                    Icons.person_pin_sharp,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                ),
+              ),
+            ],
+            elevation: 0,
+            centerTitle: true,
+            title: Text(
+              "DisCover",
+              style: GoogleFonts.robotoSlab(
+                color: Color.fromARGB(255, 0, 0, 0),
+                textStyle: Theme.of(context).textTheme.headline6,
+                fontSize: 25,
+                letterSpacing: 10,
+                fontWeight: FontWeight.w600,
+                fontStyle: FontStyle.normal,
               ),
             ),
           ),
-        ],
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          "DisCover",
-          style: GoogleFonts.robotoSlab(
-            color: Color.fromARGB(255, 0, 0, 0),
-            textStyle: Theme.of(context).textTheme.headline6,
-            fontSize: 25,
-            letterSpacing: 10,
-            fontWeight: FontWeight.w600,
-            fontStyle: FontStyle.normal,
+          body: SizedBox.expand(
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                setState(() => _currentIndex = index);
+              },
+              children: <Widget>[
+                firstpage(sendname: widget.loginname),
+                Gallery(),
+                Container(
+                  child: Image.network(
+                    'https://previews.123rf.com/images/nalinn/nalinn1504/nalinn150401764/38910765-website-under-construction-black-and-white-background-image-landing-page-with-a-working-man.jpg',
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+                Container(
+                  child: Image.network(
+                    'https://previews.123rf.com/images/nalinn/nalinn1504/nalinn150401764/38910765-website-under-construction-black-and-white-background-image-landing-page-with-a-working-man.jpg',
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          bottomNavigationBar: BottomNavyBar(
+            //iconSize: 28,
+            itemCornerRadius: 20,
+            selectedIndex: _currentIndex,
+            onItemSelected: (index) {
+              setState(() => _currentIndex = index);
+              _pageController.jumpToPage(index);
+            },
+            animationDuration: Duration(milliseconds: 520),
+            items: <BottomNavyBarItem>[
+              BottomNavyBarItem(
+                  textAlign: TextAlign.center,
+                  activeColor: Color.fromARGB(255, 21, 26, 43),
+                  title: Text(
+                    'Home',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                  icon: Icon(
+                    Icons.home,
+                    color: Colors.black,
+                  )),
+              BottomNavyBarItem(
+                  textAlign: TextAlign.center,
+                  activeColor: Color.fromARGB(255, 21, 26, 43),
+                  title: Text(
+                    'Gallery',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                  icon: Icon(
+                    Icons.apps,
+                    color: Colors.black,
+                  )),
+              BottomNavyBarItem(
+                  textAlign: TextAlign.center,
+                  activeColor: Color.fromARGB(255, 21, 26, 43),
+                  title: Text(
+                    'Messeges',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                  icon: Icon(
+                    Icons.chat_bubble,
+                    color: Colors.black,
+                  )),
+              BottomNavyBarItem(
+                  activeColor: Color.fromARGB(255, 21, 26, 43),
+                  textAlign: TextAlign.center,
+                  title: Text(
+                    'Settings',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14,
+                    ),
+                  ),
+                  icon: Icon(
+                    Icons.settings,
+                    color: Colors.black,
+                  )),
+            ],
           ),
         ),
-      ),
-      body: SizedBox.expand(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() => _currentIndex = index);
-          },
-          children: <Widget>[
-            firstpage(sendname: widget.loginname),
-            Gallery(),
-            Container(
-              child: Image.network(
-                'https://previews.123rf.com/images/nalinn/nalinn1504/nalinn150401764/38910765-website-under-construction-black-and-white-background-image-landing-page-with-a-working-man.jpg',
-                fit: BoxFit.fitWidth,
+      );
+    } else {
+      return Scaffold(
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image(
+                image: AssetImage(
+                  'assets/internet.png',
+                ),
+                height: 200,
               ),
-            ),
-            Container(
-              child: Image.network(
-                'https://previews.123rf.com/images/nalinn/nalinn1504/nalinn150401764/38910765-website-under-construction-black-and-white-background-image-landing-page-with-a-working-man.jpg',
-                fit: BoxFit.fitWidth,
+              Text(
+                "Internet Conncetion Error",
+                style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold),
               ),
-            ),
-          ],
+              Text(
+                "Turn On Mobile Data And Wifi",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomNavyBar(
-        //iconSize: 28,
-        itemCornerRadius: 20,
-        selectedIndex: _currentIndex,
-        onItemSelected: (index) {
-          setState(() => _currentIndex = index);
-          _pageController.jumpToPage(index);
-        },
-        animationDuration: Duration(milliseconds: 520),
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(
-              textAlign: TextAlign.center,
-              activeColor: Color.fromARGB(255, 21, 26, 43),
-              title: Text(
-                'Home',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                ),
-              ),
-              icon: Icon(
-                Icons.home,
-                color: Colors.black,
-              )),
-          BottomNavyBarItem(
-              textAlign: TextAlign.center,
-              activeColor: Color.fromARGB(255, 21, 26, 43),
-              title: Text(
-                'Gallry',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                ),
-              ),
-              icon: Icon(
-                Icons.apps,
-                color: Colors.black,
-              )),
-          BottomNavyBarItem(
-              textAlign: TextAlign.center,
-              activeColor: Color.fromARGB(255, 21, 26, 43),
-              title: Text(
-                'Messeges',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                ),
-              ),
-              icon: Icon(
-                Icons.chat_bubble,
-                color: Colors.black,
-              )),
-          BottomNavyBarItem(
-              activeColor: Color.fromARGB(255, 21, 26, 43),
-              textAlign: TextAlign.center,
-              title: Text(
-                'Settings',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                ),
-              ),
-              icon: Icon(
-                Icons.settings,
-                color: Colors.black,
-              )),
-        ],
-      ),
-    );
+      );
+    }
   }
+}
+
+class NetworkConnectivity {
+  NetworkConnectivity._();
+  static final _instance = NetworkConnectivity._();
+  static NetworkConnectivity get instance => _instance;
+  final _networkConnectivity = Connectivity();
+  final _controller = StreamController.broadcast();
+  Stream get myStream => _controller.stream;
+  void initialise() async {
+    ConnectivityResult result = await _networkConnectivity.checkConnectivity();
+    _checkStatus(result);
+    _networkConnectivity.onConnectivityChanged.listen((result) {
+      print(result);
+      _checkStatus(result);
+    });
+  }
+
+  void _checkStatus(ConnectivityResult result) async {
+    bool isOnline = false;
+    try {
+      final result = await InternetAddress.lookup('example.com');
+      isOnline = result.isNotEmpty && result[0].rawAddress.isNotEmpty;
+    } on SocketException catch (_) {
+      isOnline = false;
+    }
+    _controller.sink.add({result: isOnline});
+  }
+
+  void disposeStream() => _controller.close();
 }
 
 class firstpage extends StatelessWidget {
@@ -343,10 +470,9 @@ class Gallery extends StatefulWidget {
 class _GalleryState extends State<Gallery> {
   List imageurl = [
     'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
-    'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
-    'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
-    'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
-    'https://media.easemytrip.com/media/Blog/International/637867579316652136/637867579316652136pUfqUI.jpg',
+    'https://img.traveltriangle.com/blog/wp-content/uploads/2017/05/Cover11.jpg',
+    'https://assets.traveltriangle.com/blog/wp-content/uploads/2020/01/tahiti1.jpg',
+    'https://www.tourism-of-india.com/blog/wp-content/uploads/2017/04/munnar.jpg',
   ];
   @override
   Widget build(BuildContext context) {
@@ -354,7 +480,7 @@ class _GalleryState extends State<Gallery> {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: GridView.builder(
-          itemCount: 10,
+          itemCount: imageurl.length,
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -362,17 +488,27 @@ class _GalleryState extends State<Gallery> {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                Image(
-                    image:
-                        NetworkImage('${imageurl[index % imageurl.length]}'));
+                print(index);
+                showDialog(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                    actions: <Widget>[
+                      Image.network('${imageurl[index % imageurl.length]}',
+                          fit: BoxFit.cover),
+                    ],
+                  ),
+                );
               },
-              child: Container(
-                decoration:
-                    BoxDecoration(color: Color.fromARGB(255, 225, 224, 224)),
-                child: Image.network(
-                  '${imageurl[index % imageurl.length]}',
-                  height: 30,
-                  fit: BoxFit.fill,
+              child: Padding(
+                padding: EdgeInsets.all(0.5.h),
+                child: Container(
+                  decoration:
+                      BoxDecoration(color: Color.fromARGB(255, 225, 224, 224)),
+                  child: Image.network(
+                    '${imageurl[index % imageurl.length]}',
+                    height: 30,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
             );
