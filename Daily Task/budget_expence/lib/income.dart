@@ -1,12 +1,11 @@
-import 'package:budget_expence/Database/Service/myService.dart';
-import 'package:budget_expence/Database/histryModel.dart';
-import 'package:budget_expence/Database/incomeModel.dart';
-
-import 'package:budget_expence/Homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sizer/sizer.dart';
 import 'package:intl/intl.dart';
+import 'package:topsBudget/Database/Service/myService.dart';
+import 'package:topsBudget/Database/histryModel.dart';
+import 'package:topsBudget/Database/incomeModel.dart';
+import 'package:topsBudget/Homepage.dart';
 
 class income extends StatefulWidget {
   const income({super.key});
@@ -333,7 +332,7 @@ class _incomeState extends State<income> {
                       _allhistory.date = _dateC.text.toString();
 
                       _allhistory.title = titleController.text.toString();
-                      _allhistory.type = 'income';
+                      _allhistory.type = 'Income';
                       _allhistory.icons = 'green';
                       var resultHistoryIncome =
                           await _servies.inserhistory(_allhistory);

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:onlinedatabaseproject/imageApi.dart';
 import 'package:onlinedatabaseproject/model/todomodel.dart';
 
 Future<List<todoModel>> fetchdata() async {
@@ -39,7 +40,17 @@ class _todoapiState extends State<todoapi> {
     return Scaffold(
       appBar: AppBar(
         title: Text(" Todo Api"),
-        actions: [],
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => imageApi(),
+                    ));
+              },
+              icon: Icon(Icons.navigate_next)),
+        ],
       ),
       body: Container(
         child: FutureBuilder<List<todoModel>>(
@@ -73,7 +84,7 @@ class _todoapiState extends State<todoapi> {
                               decoration: BoxDecoration(
                                   color: Color.fromARGB(255, 183, 211, 233)),
                               child: Text(
-                                "ANS:   ${mylist[index].completed.toString()}",
+                                "ANS:${mylist[index].completed.toString()}",
                                 style: TextStyle(
                                     fontSize: 14,
                                     color: Color.fromARGB(255, 44, 6, 100)),

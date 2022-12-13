@@ -1,7 +1,7 @@
-import 'package:budget_expence/Database/expenceModel.dart';
-import 'package:budget_expence/Database/histryModel.dart';
-import 'package:budget_expence/Database/incomeModel.dart';
-import 'package:budget_expence/Database/repository/repository.dart';
+import 'package:topsBudget/Database/expenceModel.dart';
+import 'package:topsBudget/Database/histryModel.dart';
+import 'package:topsBudget/Database/incomeModel.dart';
+import 'package:topsBudget/Database/repository/repository.dart';
 
 class Myservices {
   late Repository _repository;

@@ -1,4 +1,4 @@
-name: budget_expence
+name: topsBudget
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -42,6 +42,7 @@ dependencies:
   path: ^1.8.2
   path_provider: ^2.0.11
   fluttertoast: ^8.1.1
+  circle_progress_bar: ^0.1.2
 
 dev_dependencies:
   flutter_test:

@@ -1,20 +1,17 @@
 class MyModel {
-  final int? userid;
   final int id;
-  final String title;
-  final String body;
+  final String firstname;
+  final String email;
   const MyModel({
-    required this.userid,
     required this.id,
-    required this.title,
-    required this.body,
+    required this.firstname,
+    required this.email,
   });
 
   factory MyModel.fromJson(Map<String, dynamic> myjsonResponce) {
     return MyModel(
-        userid: myjsonResponce['userid'],
-        id: myjsonResponce['id'],
-        title: myjsonResponce['title'],
-        body: myjsonResponce['body']);
+        id: myjsonResponce['id']!,
+        firstname: myjsonResponce['firstname'],
+        email: myjsonResponce['email']);
   }
 }

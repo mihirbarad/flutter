@@ -1,12 +1,11 @@
-import 'package:budget_expence/Database/Service/myService.dart';
-import 'package:budget_expence/Database/expenceModel.dart';
-import 'package:budget_expence/Database/histryModel.dart';
-import 'package:budget_expence/Database/incomeModel.dart';
-import 'package:budget_expence/Homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sizer/sizer.dart';
 import 'package:intl/intl.dart';
+import 'package:topsBudget/Database/Service/myService.dart';
+import 'package:topsBudget/Database/expenceModel.dart';
+import 'package:topsBudget/Database/histryModel.dart';
+import 'package:topsBudget/Homepage.dart';
 
 class expenceScreen extends StatefulWidget {
   const expenceScreen({super.key});
@@ -331,7 +330,7 @@ class _incomeState extends State<expenceScreen> {
                       _myHistrory.date = _dateController.text.toString();
                       _myHistrory.title = _titleController.text.toString();
                       _myHistrory.icons = "red";
-                      _myHistrory.type = "expense";
+                      _myHistrory.type = "Expense";
 
                       print("---> EXPENSE : title  ${_myHistrory.title}");
 

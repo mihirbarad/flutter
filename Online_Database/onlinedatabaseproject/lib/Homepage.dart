@@ -6,8 +6,8 @@ import 'package:onlinedatabaseproject/commentApi.dart';
 import 'package:onlinedatabaseproject/model/mymodel.dart';
 
 Future<List<MyModel>> fetchdata() async {
-  final response =
-      await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+  final response = await http.get(
+      Uri.parse('https://digitalsocity.000webhostapp.com/add_database.php'));
 
   if (response.statusCode == 200) {
     List jsonResponce = jsonDecode(response.body);
@@ -61,12 +61,11 @@ class _HomepageState extends State<Homepage> {
                   itemCount: mylist.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () {
-                        print("-->>>${mylist[index].id}");
-                      },
+                      onTap: () {},
                       child: Column(
                         children: [
-                          Text(mylist[index].title),
+                          Text(mylist[index].firstname),
+                          Text(mylist[index].id.toString()),
                         ],
                       ),
                     );
