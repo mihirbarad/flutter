@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onlinedatabaseproject/Homepage.dart';
+import 'package:onlinedatabaseproject/imageApi.dart';
 import 'package:onlinedatabaseproject/insert.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const InsertData(),
+      home: FetchPictureListView(),
     );
   }
 }

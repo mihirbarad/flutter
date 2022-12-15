@@ -38,7 +38,7 @@ class Myservices {
     return await _repository.deleteMyBudget("income", budgetID);
   }
 
-  fetchdatabudgetService(monthname) async {
-    return await _repository.fetchEntrybymonth("income", monthname);
+  fetchdataHistryService(monthname) async {
+    return await _repository.fetchEntrybymonth("history", monthname);
   }
 }

@@ -1,12 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:sizer/sizer.dart';
 import 'package:topsBudget/Database/Service/myService.dart';
 import 'package:topsBudget/Database/expenceModel.dart';
+import 'package:topsBudget/Database/histryModel.dart';
 import 'package:topsBudget/Database/incomeModel.dart';
 import 'package:topsBudget/Database/viewAllHistry.dart';
 import 'package:topsBudget/add_item.dart';
 import 'package:circle_progress_bar/circle_progress_bar.dart';
+import 'package:topsBudget/stetic.dart';
 
 class Homepage extends StatefulWidget {
   Homepage({super.key});
@@ -16,18 +19,27 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  int income = 0;
-  int expenceMoney = 0;
+  var income = 0;
+  var expenceMoney = 0;
   double percentage = 0;
+  var date;
+
+  ///Time
 
   List<incomeModel> HistrybudgetList = <incomeModel>[];
   List<ExpenceModel> ExpenceHistoryList = <ExpenceModel>[];
+  List<HistoryModel> HistryModel = <HistoryModel>[];
 
   var _myservices = Myservices();
 
   var abc;
 
   var addmoney = 0;
+  int? names = 0;
+  var dateController = TextEditingController();
+  var _mysevice = Myservices();
+
+  var mybudget_month = 0;
   @override
   void initState() {
     super.initState();
@@ -133,7 +145,30 @@ class _HomepageState extends State<Homepage> {
             width: MediaQuery.of(context).size.width,
             child: Column(children: [
               Padding(
-                padding: const EdgeInsets.only(top: 80),
+                padding: EdgeInsets.only(left: 80.w, right: 10.w, top: 5.h),
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeft,
+                            duration: Duration(milliseconds: 1000),
+                            child: stetic(
+                                expenceMoney: expenceMoney,
+                                income: income,
+                                percentage: percentage),
+                            inheritTheme: true,
+                            ctx: context),
+                      );
+                    },
+                    icon: Icon(
+                      Icons.stacked_bar_chart,
+                      size: 30.sp,
+                      color: Color.fromARGB(255, 4, 49, 86),
+                    )),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 6.h),
                 child: Text(
                   "Your Balance",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
@@ -148,6 +183,9 @@ class _HomepageState extends State<Homepage> {
                     fontSize: 30,
                     fontWeight: FontWeight.w500,
                     color: Color.fromARGB(247, 178, 180, 180)),
+              ),
+              SizedBox(
+                height: 20,
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Expanded(
@@ -173,6 +211,9 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  width: 9.w,
+                ),
                 Expanded(
                   child: ListTile(
                     title: Text(
@@ -180,10 +221,10 @@ class _HomepageState extends State<Homepage> {
                       style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
-                          color: Colors.green),
+                          color: Colors.red),
                     ),
                     subtitle: Text(
-                      "₹%${percentage = expenceMoney / income * 100}.00",
+                      "₹${expenceMoney}.00",
                       style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
@@ -197,19 +238,7 @@ class _HomepageState extends State<Homepage> {
                   ),
                 ),
               ]),
-              SizedBox(
-                width: 130,
-                child: CircleProgressBar(
-                  foregroundColor: Colors.white54,
-                  backgroundColor: Colors.black12,
-                  value: 0.4,
-                  child: AnimatedCount(
-                    count: 0.5,
-                    unit: '%',
-                    duration: Duration(milliseconds: 500),
-                  ),
-                ),
-              ),
+              Spacer(),
               GestureDetector(
                 onTap: () {
                   Navigator.push(

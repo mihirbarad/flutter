@@ -1,67 +1,98 @@
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+class FetchPictureListView extends StatefulWidget {
+  FetchPictureListView({Key? key}) : super(key: key);
 
-import 'package:http/http.dart' as http;
-import 'package:onlinedatabaseproject/model/imageModel.dart';
+  @override
+  State<FetchPictureListView> createState() => _FetchPictureListViewState();
+}
 
-Future<List<imageModel>> fetchdata() async {
+// main logic for retrieve data from api
+Future<List<PictureModel>> fetchApiData() async {
   final response =
-      await http.get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
-
+      await http.get(Uri.parse("https://jsonplaceholder.typicode.com/photos"));
   if (response.statusCode == 200) {
-    List jsonResponce = jsonDecode(response.body);
-    List<imageModel> mylist =
-        jsonResponce.map((data) => new imageModel.fromJson(data)).toList();
+    List list = jsonDecode(response.body);
+    List<PictureModel> cartList =
+        list.map((e) => PictureModel.fromJson(e)).toList();
 
-    return mylist;
+    return cartList;
   } else {
-    throw Exception("Failed to Load album");
+    throw Exception("Failed to load data");
   }
 }
 
-class imageApi extends StatefulWidget {
-  const imageApi({super.key});
+// model class
+class PictureModel {
+  int? albumId;
+  int? id;
+  String? title;
+  String? url;
+  String? thumbnailUrl;
 
-  @override
-  State<imageApi> createState() => _CommentApiState();
+  PictureModel(
+      {this.albumId, this.id, this.title, this.url, this.thumbnailUrl});
+
+  PictureModel.fromJson(Map<String, dynamic> json) {
+    albumId = json['albumId'];
+    id = json['id'];
+    title = json['title'];
+    url = json['url'];
+    thumbnailUrl = json['thumbnailUrl'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['albumId'] = this.albumId;
+    data['id'] = this.id;
+    data['title'] = this.title;
+    data['url'] = this.url;
+    data['thumbnailUrl'] = this.thumbnailUrl;
+    return data;
+  }
 }
 
-class _CommentApiState extends State<imageApi> {
-  late Future<List<imageModel>> myfutureList;
+class _FetchPictureListViewState extends State<FetchPictureListView> {
+  late Future<List<PictureModel>> futureData;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    myfutureList = fetchdata();
+    futureData = fetchApiData();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Image Api"),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.navigate_next))
-        ],
+        title: Text("API - IMAGE FETCH"),
       ),
       body: Container(
-        child: FutureBuilder<List<imageModel>>(
-          future: myfutureList,
+        child: FutureBuilder<List<PictureModel>>(
+          future: fetchApiData(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: (context, index) {
-                    imageModel modelImage = snapshot.data![index];
-
-                    return Container(
-                      height: 150,
-                      width: 150,
-                      child: Image.network(modelImage.url),
-                    );
-                  });
+                itemBuilder: (context, index) {
+                  PictureModel pictureModel = snapshot.data![index];
+                  return Container(
+                    width: 180,
+                    height: 139,
+                    margin: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(pictureModel.url!),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  );
+                },
+                itemCount: snapshot.data!.length,
+              );
+            } else if (snapshot.hasError) {
+              return Text("${snapshot.error}");
             }
             return CircularProgressIndicator();
           },

@@ -4,9 +4,9 @@ Datamodel dataModelFromJson(String str) => Datamodel.fromJson(json.decode(str));
 String dataModelToJson(Datamodel data) => json.encode(data.toJson());
 
 class Datamodel {
-  final String name;
-  final String email;
-  final int id;
+  final String? name;
+  final String? email;
+  final int? id;
 
   const Datamodel({
     required this.name,

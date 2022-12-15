@@ -1,4 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:onlinedatabaseproject/model/insertdata.dart';
+import 'package:http/http.dart' as http;
+
+Future<Datamodel?> submitData(String name, String email) async {
+  var response = await http.post(
+      Uri.parse('https://digitalsocity.000webhostapp.com/add_members.php'),
+      body: {"firstname": name, 'email': email});
+  var data = response.body;
+  if (response.statusCode == 201) {
+    String responseString = response.body;
+    dataModelFromJson(responseString);
+  } else {
+    return null;
+  }
+}
 
 class InsertData extends StatefulWidget {
   const InsertData({super.key});
@@ -93,7 +108,16 @@ class _InsertDataState extends State<InsertData> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                String name = nameControler.text.toString();
+                String email = emailControler.text.toString();
+                Datamodel? datamodel = await submitData(name, email);
+
+                setState(() {
+                  var _datamodel = datamodel;
+                  print("NAME ===>>${datamodel?.name}");
+                });
+              },
               child: Text("Click "),
             )
           ],

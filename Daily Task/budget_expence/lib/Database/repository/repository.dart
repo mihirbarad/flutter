@@ -66,7 +66,7 @@ class Repository {
     var conncetion = await database;
     return await conncetion?.query(table,
         columns: ['id', 'amount', 'title', 'date', 'time'],
-        where: 'title = ?',
+        where: 'date = ?',
         whereArgs: [monthname]);
   }
 }
