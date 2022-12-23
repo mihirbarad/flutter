@@ -1,16 +1,12 @@
-# traveling
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_1671788547](https://user-images.githubusercontent.com/106421028/209318442-a2e6f1f0-7232-4491-99f8-fe897050c340.png)
+![Screenshot_1671788556](https://user-images.githubusercontent.com/106421028/209318453-4694c7d2-fdaa-4f80-8dcd-99834b791458.png)
+![Screenshot_1671787908](https://user-images.githubusercontent.com/106421028/209318455-74f7edb3-f5f2-483d-aed1-c38a658f4203.png)
+![Screenshot_1671787914](https://user-images.githubusercontent.com/106421028/209318458-f56a2bd2-5f11-426e-a410-8bb541973793.png)
+![Screenshot_1671787922](https://user-images.githubusercontent.com/106421028/209318459-a6645f56-5d3f-412d-9b76-f8ff2314361f.png)
+![Screenshot_1671787928](https://user-images.githubusercontent.com/106421028/209318461-a53612b8-20f3-4c56-a339-cd33d129ee99.png)
+![Screenshot_1671787937](https://user-images.githubusercontent.com/106421028/209318466-dbd14b81-5229-4555-987a-0f3136419dda.png)
+![Screenshot_1671787945](https://user-images.githubusercontent.com/106421028/209318469-c010a53f-00d2-49e7-add3-1082e700e219.png)
+![Screenshot_1671787952](https://user-images.githubusercontent.com/106421028/209318471-3c36332f-30ff-4ed7-86cf-2661eea8cec2.png)
+![Screenshot_1671787969](https://user-images.githubusercontent.com/106421028/209318473-1c421334-0804-467e-a199-6123fe9f50bc.png)
+![Screenshot_1671787978](https://user-images.githubusercontent.com/106421028/209318477-02dd268e-9d4b-45d4-a7bd-f9b046593026.png)
+![Screenshot_1671787987](https://user-images.githubusercontent.com/106421028/209318487-8834a92f-4439-4dc0-91ce-c534a38016dd.png)
